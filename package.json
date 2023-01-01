@@ -2,6 +2,7 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "description": "Идея этого проекта была спизжена с Hexlet",
+  "type": "module",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/nightAnt/brain-games/issues"
   },
-  "homepage": "https://github.com/nightAnt/brain-games#readme"
+  "homepage": "https://github.com/nightAnt/brain-games#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
 }
