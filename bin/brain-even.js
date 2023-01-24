@@ -1,5 +1,5 @@
-import readlineSync from 'readline-sync';
+#!/usr/bin/env node
 
-export function turnUpGameEven() {
-    console.log('Answer "yes" if the number is even, otherwise answer "no".');
-}
+import { turnUpGameEven } from '../src/evenMain.js'
+
+turnUpGameEven();
