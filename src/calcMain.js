@@ -8,35 +8,33 @@ function getGreeting() {
     console.log(`Hello ${name}`);
 }
 
+function getNumbers() {
+    let number1 = Math.floor((Math.random() * 100)); 
+    let number2 = Math.floor((Math.random() * 100));
+
+    return [number1, number2];
+}
+
+function getSymbol(question) {
+    let symbols = ['+', '*', '-'];
+    let symbol = Math.floor((Math.random() * symbols.length)); 
+    
+    return symbols[symbol];
+}
+
 function reuiestQuestion() {
     console.log('What is the result of the expression?');
-    let question = readlineSync.question('Question: ');
+    let [number1, number2] = getNumbers();
+    let symbol = getSymbol();
+    
+    console.log(`Question: ${number1} ${symbol} ${number2} `);
 
-    return question;
+    return [number1, number2, symbol];
 }
 
-function getNumbers(question) {
-    let numbers = question.match(/\d+/g);
-
-    return numbers;
-}
-
-function getChar(question) {
-    let char = question.match(/[+*-]/);
-
-    return char[0];
-}
-
-export default function() {
+function getRightAnswer(number1, number2, symbol) {
     let answer = 0;
-
-    getGreeting();
-    let question = reuiestQuestion();
-    let char = getChar(question);
-    let numbers = getNumbers(question);
-    let number1 = +numbers[0];
-    let number2 = +numbers[1];
-    switch(char) {
+    switch(symbol) {
         case '+':
             answer = number1 + number2; 
             break;
@@ -48,5 +46,22 @@ export default function() {
             break;
     };
 
-    console.log(`Your answer: ${answer}`);
+    return answer;
+}
+
+function check(answer, rightAnswer) {
+    if (answer == rightAnswer){
+        console.log('Correct!');
+    } else {
+        console.log(`${answer} is wrong answer ;(. Correct answer was ${rightAnswer}.`);
+    };
+}
+
+export default function() {
+    let result = '';
+    getGreeting();
+    let [number1, number2, symbol] = reuiestQuestion();
+    let userAnswer = readlineSync.question('Your answer: ');
+    let rightAnswer = getRightAnswer(number1, number2, symbol);
+    check(userAnswer, rightAnswer);
 }

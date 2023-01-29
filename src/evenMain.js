@@ -19,7 +19,7 @@ function messageRightAnswer() {
 }
 
 function messageWrongAnswer() {
-    console.log("'yes' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, Bill!");
+    console.log(`'yes' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, ${name}`);
 }
 
 function messageWin() {
