@@ -1,4 +1,4 @@
-function getRandomNumbers(min, max, quantity) {
+function getRandomNumbers(min, max, quantity = 1) {
   let result = [];
   for (let i = 0; i < quantity; i++) {
     result.push(Math.floor(min + Math.random() * (max + 1 - min)));
@@ -23,6 +23,16 @@ function getArrayDivisors(number) {
   return result;
 }
 
+function getProgression(from, step, lengthProgression) {
+  let result = [from];
+  for(let i = 0; i <= lengthProgression; i++) {
+    result.push(result[i] + step);
+  };
+
+  return result;
+}
+
 export { getRandomNumbers };
 export { getRandomSymbol };
 export { getArrayDivisors };
+export { getProgression };
