@@ -1,7 +1,5 @@
 import runGame from '../index.js';
-import { getRandomNumbers } from '../utils.js';
-import { getRandomSymbol } from '../utils.js';
-
+import { getRandomNumbers, getRandomSymbol } from '../utils.js';
 
 function reuiestQuestion() {
   console.log('What is the result of the expression?');

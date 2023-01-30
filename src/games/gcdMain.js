@@ -1,6 +1,5 @@
 import runGame from '../index.js';
-import { getArrayDivisors } from '../utils.js';
-import { getRandomNumbers } from '../utils.js';
+import { getArrayDivisors, getRandomNumbers } from '../utils.js';
 
 function reuiestQuestion() {
   console.log('Find the greatest common divisor of given numbers.');
@@ -13,10 +12,10 @@ function reuiestQuestion() {
 
 function getRightAnswerOn(question) {
   const [number1, number2] = question;
-  let divisorsOfNumber1 = getArrayDivisors(number1);
-  let divisorsOfNumber2 = getArrayDivisors(number2);
-  let commonDivisorsNumbers = divisorsOfNumber1.filter(item => divisorsOfNumber2.includes(item));
-  let greatestCommonDivisor = Math.max(...commonDivisorsNumbers);
+  const divisorsOfNumber1 = getArrayDivisors(number1);
+  const divisorsOfNumber2 = getArrayDivisors(number2);
+  const commonDivisorsNumbers = divisorsOfNumber1.filter(item => divisorsOfNumber2.includes(item));
+  const greatestCommonDivisor = Math.max(...commonDivisorsNumbers);
   return greatestCommonDivisor;
 }
 
