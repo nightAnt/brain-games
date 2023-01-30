@@ -13,5 +13,16 @@ function getRandomSymbol(symbols = ['+', '*', '-']) {
   return symbols[symbol];
 }
 
+function getArrayDivisors(number) {
+  let result = [];
+  for (let i = 1; i <= number; i++) {
+    if (number % i === 0) {
+      result.push(i);
+    }
+  }
+  return result;
+}
+
 export { getRandomNumbers };
 export { getRandomSymbol };
+export { getArrayDivisors };
