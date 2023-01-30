@@ -1,23 +1,12 @@
 import runGame from '../index.js';
+import { getRandomNumbers } from '../utils.js';
+import { getRandomSymbol } from '../utils.js';
 
-function getNumbers() {
-  const number1 = Math.floor(Math.random() * 100);
-  const number2 = Math.floor(Math.random() * 100);
-
-  return [number1, number2];
-}
-
-function getSymbol() {
-  const symbols = ['+', '*', '-'];
-  const symbol = Math.floor(Math.random() * symbols.length);
-
-  return symbols[symbol];
-}
 
 function reuiestQuestion() {
   console.log('What is the result of the expression?');
-  const [number1, number2] = getNumbers();
-  const symbol = getSymbol();
+  const [number1, number2] = getRandomNumbers(0, 10, 2);
+  const symbol = getRandomSymbol();
 
   console.log(`Question: ${number1} ${symbol} ${number2} `);
 
