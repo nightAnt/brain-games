@@ -1,18 +1,15 @@
 import runGame from '../index.js';
+import { getRandomNumbers } from '../utils.js';
 
-function getRightAnswerOn(question) {
-  const rightAnswer = question % 2 === 0 ? 'yes' : 'no';
-
-  return rightAnswer;
-}
-
-function reuiestQuestion() {
-  const randomNumber = Math.floor(Math.random() * 100);
-  console.log(`Question: ${randomNumber}`);
-
-  return [randomNumber];
+const question = 'Answer "yes" if the number is even, otherwise answer "no".';
+  
+function getNumberAndRightAnswer() {
+  const randomNumber = getRandomNumbers(1, 100, 1);
+  const rightAnswer = randomNumber % 2 === 0 ? 'yes' : 'no';
+  
+  return [randomNumber, rightAnswer];
 }
 
 export function main() {
-  runGame(reuiestQuestion, getRightAnswerOn);
+  runGame(question, getNumberAndRightAnswer);
 }

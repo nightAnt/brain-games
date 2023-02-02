@@ -1,20 +1,15 @@
 import runGame from '../index.js';
 import { getRandomNumbers, getRandomSymbol } from '../utils.js';
 
-function reuiestQuestion() {
-  console.log('What is the result of the expression?');
-  const [number1, number2] = getRandomNumbers(0, 10, 2);
+const mainQuestion = 'What is the result of the expression?';
+  
+function getExpressionAndRightAnswer() {
+  const [number1, number2] = getRandomNumbers(1, 10, 2);
   const symbol = getRandomSymbol();
-
-  console.log(`Question: ${number1} ${symbol} ${number2} `);
-
-  return [number1, number2, symbol];
-}
-
-function getRightAnswerOn(question) {
   let rightAnswer = 0;
-  const [number1, number2, symbol] = question;
 
+  const expression = `${number1} ${symbol} ${number2}`;
+  
   switch (symbol) {
     case '+':
       rightAnswer = number1 + number2;
@@ -27,9 +22,9 @@ function getRightAnswerOn(question) {
       break;
   }
 
-  return rightAnswer;
+  return [expression, rightAnswer];
 }
 
 export function main() {
-  runGame(reuiestQuestion, getRightAnswerOn);
+  runGame(mainQuestion, getExpressionAndRightAnswer);
 }

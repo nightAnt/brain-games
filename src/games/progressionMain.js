@@ -1,24 +1,20 @@
 import runGame from '../index.js';
 import { getRandomNumbers, getProgression } from '../utils.js';
 
-function reuiestQuestion() {
-  console.log('What number is missing in the progression?');
-
+const mainQuestion = 'What number is missing in the progression?';
+  
+function getExpressionAndRightAnswer() {
   const [from, step, lengthProgression] = getRandomNumbers(1, 10, 3);
   const numberSpace = getRandomNumbers(0, lengthProgression);
   let progression = getProgression(from, step, lengthProgression);
   const rightAnswer = progression[numberSpace];
 
   progression.splice(numberSpace, 1, '...');
-  console.log(`Question: ${progression.join(' ')} `);
+  const expression = progression.join(' ');
 
-  return rightAnswer;
-}
-
-function getRightAnswerOn(question) {
-  return question; // ¯\_ (ツ)_/¯
+  return [expression, rightAnswer];
 }
 
 export function main() {
-  runGame(reuiestQuestion, getRightAnswerOn);
+  runGame(mainQuestion, getExpressionAndRightAnswer);
 }
