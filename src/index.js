@@ -1,6 +1,6 @@
 import readlineSync from 'readline-sync';
 
-const maxRound = 10;
+const maxRound = 3;
 let log = [];
 
 //  проверяет, были или нет прошлые вопросы, которые хранятся в log
